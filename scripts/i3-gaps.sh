@@ -5,7 +5,7 @@ libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
 libstartup-notification0-dev libxcb-randr0-dev \
 libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
 libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
-autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev -y
+autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev xvfb -y
 
 cd ..
 mkdir -p etc
@@ -33,5 +33,5 @@ sudo pip install -r requirements.txt
 cp -r scripts/* /home/$USER/.config/polybar/
 mkdir ~/Backups -p
 cd src
-python i3wm-themer.py --config config.yaml --backup /home/$USER/Backups
-python i3wm-themer.py --config config.yaml --install defaults/
+xvfb-run python i3wm-themer.py --config config.yaml --backup /home/$USER/Backups
+xvfb-run python i3wm-themer.py --config config.yaml --install defaults/
