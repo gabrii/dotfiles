@@ -5,7 +5,13 @@ libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
 libstartup-notification0-dev libxcb-randr0-dev \
 libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
 libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
-autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev -y
+autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev \
+cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev \
+libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
+libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen \
+xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev \
+libiw-dev libcurl4-openssl-dev libpulse-dev \
+libxcb-composite0-dev xcb libxcb-ewmh2 -y
 
 cd ..
 mkdir -p etc
@@ -24,6 +30,15 @@ mkdir -p build && cd build/
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make
 sudo make install
+
+cd ../../
+
+git clone --branch 3.3 --recursive https://github.com/jaagr/polybar
+mkdir polybar/build
+cd polybar/build
+cmake ..
+sudo make install
+
 
 cd ../../
 git clone https://github.com/unix121/i3wm-themer
