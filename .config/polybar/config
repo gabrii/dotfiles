@@ -1,4 +1,5 @@
 [bar/i3wmthemer_bar]
+monitor = ${env:MONITOR:}
 width = 100%
 height = 42
 radius = 0
